@@ -1,0 +1,138 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Ability Score Generator</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css" integrity="sha256-qS+snwBgqr+iFVpBB58C9UCxKFhyL03YHpZfdNUhSEw=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <main class='section'>
+        <div class='container'>
+            <h1 class='title'>Ability Score Generator</h1>
+            <hr>
+            <p>Using the truly random number genarator from <a href="https://www.random.org">RANDOM.org</a> to generate truly random dice rolls for D&amp;D!</p>
+            <h2>My Method - </h2>
+            <div style='margin-left: 24px;'>
+            <ol>
+                <li>I query RANDOM.org for 24 random integers between 1 and 6 - emulating 24 seperate d6 dice rolls.</li>
+                <li>I take the first four and add them up, then subtract the value of the lowest of the four. This is the first ability score.</li>
+                <li>I them take the next four random integers, do the same process, and then so on until I have gone through all 24 integers.</li>
+                <li>These six calculated numbers are then displayed below!</li>
+            </ol>
+            </div>
+            <hr>
+            <p>Hit the button and generate a new set of ability scores.</p>
+            <p>You will then click below each score to determine which stat you want that score to be in.</p>
+
+            <div style='margin-top: 10px;'>
+                <button class="button" id="rollButton">Roll Some Abilities!</button>
+            </div>
+
+
+            <div class="columns">
+                <div class="box column is-1 has-text-centered is-size-3 scores" id='score1'>**</div>
+                <div class="box column is-1 has-text-centered is-size-3 scores" id='score2'>**</div>
+                <div class="box column is-1 has-text-centered is-size-3 scores" id='score3'>**</div>
+                <div class="box column is-1 has-text-centered is-size-3 scores" id='score4'>**</div>
+                <div class="box column is-1 has-text-centered is-size-3 scores" id='score5'>**</div>
+                <div class="box column is-1 has-text-centered is-size-3 scores" id='score6' style="margin-bottom: 24px;">**</div>
+            </div>
+
+            <div class="columns">
+                <div class="box column is-1 has-text-centered" style="margin-bottom: 5px;">
+                    <div class="control" style="margin-left: 20px;">
+                        <label class="radio"><input type="radio" name="stat1">STR</label><br>
+                        <label class="radio"><input type="radio" name="stat1">DEX</label><br>
+                        <label class="radio"><input type="radio" name="stat1">CON</label><br>
+                        <label class="radio"><input type="radio" name="stat1">INT</label><br>
+                        <label class="radio"><input type="radio" name="stat1">WIS</label><br>
+                        <label class="radio"><input type="radio" name="stat1">CHA</label>
+                    </div>
+                </div>
+                <div class="box column is-1 has-text-centered strength stats" style="margin-bottom: 5px;" id="str2">
+                    <div class="control" style="margin-left: 20px;">
+                        <label class="radio"><input type="radio" name="stat2">STR</label><br>
+                        <label class="radio"><input type="radio" name="stat2">DEX</label><br>
+                        <label class="radio"><input type="radio" name="stat2">CON</label><br>
+                        <label class="radio"><input type="radio" name="stat2">INT</label><br>
+                        <label class="radio"><input type="radio" name="stat2">WIS</label><br>
+                        <label class="radio"><input type="radio" name="stat2">CHA</label>
+                    </div>
+                </div>
+                <div class="box column is-1 has-text-centered strength stats" style="margin-bottom: 5px;" id="str3">
+                    <div class="control" style="margin-left: 20px;">
+                        <label class="radio"><input type="radio" name="stat3">STR</label><br>
+                        <label class="radio"><input type="radio" name="stat3">DEX</label><br>
+                        <label class="radio"><input type="radio" name="stat3">CON</label><br>
+                        <label class="radio"><input type="radio" name="stat3">INT</label><br>
+                        <label class="radio"><input type="radio" name="stat3">WIS</label><br>
+                        <label class="radio"><input type="radio" name="stat3">CHA</label>
+                    </div>
+                </div>
+                <div class="box column is-1 has-text-centered strength stats" style="margin-bottom: 5px;" id="str4">
+                    <div class="control" style="margin-left: 20px;">
+                        <label class="radio"><input type="radio" name="stat4">STR</label><br>
+                        <label class="radio"><input type="radio" name="stat4">DEX</label><br>
+                        <label class="radio"><input type="radio" name="stat4">CON</label><br>
+                        <label class="radio"><input type="radio" name="stat4">INT</label><br>
+                        <label class="radio"><input type="radio" name="stat4">WIS</label><br>
+                        <label class="radio"><input type="radio" name="stat4">CHA</label>
+                    </div>
+                </div>
+                <div class="box column is-1 has-text-centered strength stats" style="margin-bottom: 5px;" id="str5">
+                    <div class="control" style="margin-left: 20px;">
+                        <label class="radio"><input type="radio" name="stat5">STR</label><br>
+                        <label class="radio"><input type="radio" name="stat5">DEX</label><br>
+                        <label class="radio"><input type="radio" name="stat5">CON</label><br>
+                        <label class="radio"><input type="radio" name="stat5">INT</label><br>
+                        <label class="radio"><input type="radio" name="stat5">WIS</label><br>
+                        <label class="radio"><input type="radio" name="stat5">CHA</label>
+                    </div>
+                </div>
+                <div class="box column is-1 has-text-centered strength stats" style="margin-bottom: 5px;" id="str6">
+                    <div class="control" style="margin-left: 20px;">
+                        <label class="radio"><input type="radio" name="stat6">STR</label><br>
+                        <label class="radio"><input type="radio" name="stat6">DEX</label><br>
+                        <label class="radio"><input type="radio" name="stat6">CON</label><br>
+                        <label class="radio"><input type="radio" name="stat6">INT</label><br>
+                        <label class="radio"><input type="radio" name="stat6">WIS</label><br>
+                        <label class="radio"><input type="radio" name="stat6">CHA</label>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <p>Type in a character name you want to save these stats for:</p>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-primary" type="text" placeholder="Primary input">
+                </div>
+            </div>
+
+            <div style='margin-top: 10px;'>
+                <button class="button" id="saveButton">Save these Abilities!</button>
+            </div>
+
+            <br><br>
+            <ul class="characters">
+                {{#each characters}}
+                    <li>{{this.charname}}</li>
+                {{/each}}
+            </ul>
+
+        </div>
+    </main>
+ 
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="random.js"></script>
+    {{!-- <script src="statcontrol.js"></script> statcontrol is a work in progress--}}
+</body>
+
+</html>
