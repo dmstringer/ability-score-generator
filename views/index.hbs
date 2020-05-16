@@ -120,9 +120,20 @@
             </div>
 
             <br><br>
+            <p>Saved Characters:</p>
             <ul class="characters">
                 {{#each characters}}
-                    <li>{{this.charname}}</li>
+                    <li class='level' id='theCharList'>
+                        <div class='level-left'>
+                        <div class='savedName level-item'>{{this.charname}}:</div> 
+                        <div class='saved level-item'>STR - {{this.strength}},</div> 
+                        <div class='saved level-item'>DEX - {{this.dexterity}},</div>
+                        <div class='saved level-item'>CON - {{this.constitution}},</div>
+                        <div class='saved level-item'>INT - {{this.intelligence}},</div>
+                        <div class='saved level-item'>WIS - {{this.wisdom}},</div>
+                        <div class='saved level-item'>CHA - {{this.charisma}}</div>
+                        </div>
+                    </li>
                 {{/each}}
             </ul>
 

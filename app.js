@@ -1,4 +1,5 @@
 const express = require('express')
+const db = require('./lib/db')
 
 const app = express()
 
@@ -10,31 +11,36 @@ const port = 7878
 app.set('view engine', 'hbs')
 
 
-const dummylist = [
-    {
-        charname: 'Conan',
-        strength: 18,
-        dexterity: 12,
-        constitution: 15,
-        intelligence: 8,
-        widsom: 13,
-        charisma: 10
-    },
-    {
-        charname: 'Merlin',
-        strength: 9,
-        dexterity: 12,
-        constitution: 10,
-        intelligence: 18,
-        widsom: 15,
-        charisma: 14
-    }
-]
-
 app.get('/', function (req,res){
-    res.render('index', {title: 'Hey', message:'Hello there!'})
+    db.getChars()
+        .then(function (charList) {
+            res.render('index', { characters: charList })
+        })
+        .catch(function () {
+            //TODO show and error page
+        })
 })
 
-app.listen(port, function () {
-    console.log('express is listening on port ' + port)
-})
+const startExpressApp = function () {
+    app.listen(port, function () {
+        console.log('express is listening on port ' + port)
+    })
+}
+
+const bootupSequenceFailed = function (err) {
+    console.error('Unable to connect to the database;', err)
+    console.error('Goodbye!')
+    process.exit(1)
+}
+
+//global kickoff point
+//using db object from the required db file above, the connect fuction is defined there
+db.connect()
+    .then(startExpressApp)
+    .catch(bootupSequenceFailed)
+
+//calling the method from the db file (which queries the database) and returns the query result
+// db.getChars()
+//     .then(function (charList) {
+//         console.log(charList)
+//     })
