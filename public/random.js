@@ -6,6 +6,12 @@ const boxElScore3 = document.getElementById("score3");
 const boxElScore4 = document.getElementById("score4");
 const boxElScore5 = document.getElementById("score5");
 const boxElScore6 = document.getElementById("score6");
+const inpElStatNum1 = document.getElementById("statNum1");
+const inpElStatNum2 = document.getElementById("statNum2");
+const inpElStatNum3 = document.getElementById("statNum3");
+const inpElStatNum4 = document.getElementById("statNum4");
+const inpElStatNum5 = document.getElementById("statNum5");
+const inpElStatNum6 = document.getElementById("statNum6");
 
 const addFunc = (a, b) => a + b;             // function for adding two numbers.
 
@@ -70,6 +76,12 @@ function clickRollBtn () {
             boxElScore4.innerHTML = addEmUp(scoreArray4);
             boxElScore5.innerHTML = addEmUp(scoreArray5);
             boxElScore6.innerHTML = addEmUp(scoreArray6);
+            inpElStatNum1.value = addEmUp(scoreArray1);
+            inpElStatNum2.value = addEmUp(scoreArray2);
+            inpElStatNum3.value = addEmUp(scoreArray3);
+            inpElStatNum4.value = addEmUp(scoreArray4);
+            inpElStatNum5.value = addEmUp(scoreArray5);
+            inpElStatNum6.value = addEmUp(scoreArray6);
 
             //pElInspQuote.innerHTML = '"' + data[quoteNumber].text + '"';
             //pElInspAuthor.innerHTML = data[quoteNumber].author;

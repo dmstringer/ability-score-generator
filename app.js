@@ -5,12 +5,14 @@ const app = express()
 
 app.use(express.static('public'))
 
+app.use(express.urlencoded({ extended: true }))
+
 const port = 7878
 
 // set the template engine
 app.set('view engine', 'hbs')
 
-
+//gets the character list from the database
 app.get('/', function (req,res){
     db.getChars()
         .then(function (charList) {
@@ -20,6 +22,25 @@ app.get('/', function (req,res){
             //TODO show and error page
         })
 })
+
+//add a new character to the list
+app.post('/add-character', function (req,res){
+    //db.
+    console.log(req.body)
+    console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+
+
+
+    // db.getChars()
+    //     .then(function (charList) {
+    //         res.render('index', { characters: charList })
+    //     })
+    //     .catch(function () {
+    //         //TODO show and error page
+    //     })
+})
+
+
 
 const startExpressApp = function () {
     app.listen(port, function () {
